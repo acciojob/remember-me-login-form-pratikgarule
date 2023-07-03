@@ -8,30 +8,20 @@
 
 <body>
 	<!-- the entire body must be written by student -->
-	<!DOCTYPE html>
-<html>
-<head>
-  <title>Login Form</title>
-  <script src="login.js"></script>
-</head>
-<body>
-  <h1>Login Form</h1>
-  <form>
-    <label for="username">Username:</label>
-    <input type="text" id="username" placeholder="Username"><br><br>
-    
-    <label for="password">Password:</label>
-    <input type="password" id="password" placeholder="Password"><br><br>
+	 <h1>Login Form</h1>
 
-    <label for="checkbox">
-      <input type="checkbox" id="checkbox">Remember me:
-    </label><br><br>
-
+  <form id="login-form">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" placeholder="Username">
+    <br>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" placeholder="Password">
+    <br>
+    <input type="checkbox" id="remember" name="remember">
+    <label for="remember">Remember me</label>
+    <br>
     <input type="submit" id="submit" value="Submit">
   </form>
-
-  <button id="existing" style="display: none;">Login as existing user</button>
-
 
     <script type="text/javascript" src="./script.js">
 </script>

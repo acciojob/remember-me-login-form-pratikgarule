@@ -1,36 +1,35 @@
-var loginForm = document.getElementById('loginForm');
-var usernameInput = document.getElementById('username');
-var passwordInput = document.getElementById('password');
-var rememberMeCheckbox = document.getElementById('rememberMe');
-var submitButton = document.getElementById('submit');
-var existingUserButton = document.getElementById('existing');
+//your JS code here. If required.
+function handleSubmit(event) {
+  event.preventDefault(); 
 
-submitButton.addEventListener('click', function(event) {
-  event.preventDefault();
+  const usernameInput = document.getElementById("username");
+  const passwordInput = document.getElementById("password");
+  const rememberCheckbox = document.getElementById("remember");
+
+  const username = usernameInput.value;
+  const password = passwordInput.value;
+  const rememberMe = rememberCheckbox.checked;
+
   
-  var username = usernameInput.value;
-  var password = passwordInput.value;
-  
-  if (rememberMeCheckbox.checked) {
-    localStorage.setItem('username', username);
-    localStorage.setItem('password', password);
+  if (rememberMe) {
+    localStorage.setItem("username", username);
+    localStorage.setItem("password", password);
   } else {
-    localStorage.removeItem('username');
-    localStorage.removeItem('password');
+    localStorage.removeItem("username");
+    localStorage.removeItem("password");
   }
-  
-  alert('Logged in as ' + username);
-});
 
-if (localStorage.getItem('username') && localStorage.getItem('password')) {
-  var existingUserButton = document.createElement('button');
-  existingUserButton.id = 'existing';
-  existingUserButton.textContent = 'Login as existing user';
-  
-  existingUserButton.addEventListener('click', function() {
-    var savedUsername = localStorage.getItem('username');
-    alert('Logged in as ' + savedUsername);
-  });
-  
-  loginForm.appendChild(existingUserButton);
+  alert("Logged in as " + username);
 }
+
+function handleExistingLogin() {
+  const savedUsername = localStorage.getItem("username");
+
+  alert("Logged in as " + savedUsername);
+}
+
+const loginForm = document.getElementById("login-form");
+const existingUserBtn = document.getElementById("existing");
+
+loginForm.addEventListener("submit", handleSubmit);
+existingUserBtn.addEventListener("click", handleExistingLogin);
